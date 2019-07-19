@@ -25,10 +25,23 @@ namespace ExploreCalifornia
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+
+
+            //app.Use(async (context,next) => // This is the only middleware regisererd
+            //{
+            //    if (context.Request.Path.Value.StartsWith("/hello"))
+            //    {
+            //        await context.Response.WriteAsync("Hello Asp.net Core!");
+            //    }
+            //    await next();
+            //});
+
+            //app.Run(async (context) => // This is the only middleware regisererd
+            //{
+            //    await context.Response.WriteAsync("Hey, How are ya!");
+            //});
+
+            app.UseFileServer();
         }
     }
 }
